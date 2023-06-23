@@ -216,6 +216,7 @@ const search_functions: Record<SearchFunctions, string> = {
 }
 
 async function get_response(messages: ChatGPTMessage[], belief: BeliefType): Promise<ChatGPTMessage[] | null> {
+  console.log("messages", messages);
   let payload = { ...payload_template, messages, functions: belief_functions[belief] };
 
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
